@@ -29,6 +29,6 @@ chrome.runtime.onMessage.addListener(
 });
 
 function charEncoding(string) {
-  string = string.replace("[","etcode4osqbr");
-  return string = string.replace("]","etcode4csqbr");
+  string = string.replace(/\[/g,"etcode4osqbr");
+  return string = string.replace(/\]/g,"etcode4csqbr");
 };
