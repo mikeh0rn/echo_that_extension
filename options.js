@@ -11,7 +11,7 @@ function userRailsOauth() {
 
     var promise = new Promise(function(resolve, reject) {
       var xml = new XMLHttpRequest();
-      xml.open("POST", "https://echoko.herokuapp.com/api/users", true);
+      xml.open("POST", "http://www.thatecho.co/api/users", true);
       xml.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xml.setRequestHeader("Accept", "application/json");
       xml.onload = function() {
@@ -39,7 +39,7 @@ function userRailsOauth() {
 function RailsTwitterOauth() {
   chrome.identity.getProfileUserInfo(function(userInfo) {
     var message = JSON.stringify(userInfo);
-    chrome.tabs.create({ url: "https://echoko.herokuapp.com/auth/twitter?google_credentials=" + userInfo.email });
+    chrome.tabs.create({ url: "http://www.thatecho.co/auth/twitter?google_credentials=" + userInfo.email });
   });
 };
 
@@ -53,7 +53,7 @@ function twitterOauthStarter() {
 function RailsFacebookOauth() {
   chrome.identity.getProfileUserInfo(function(userInfo) {
     var message = JSON.stringify(userInfo);
-    chrome.tabs.create({ url: "https://echoko.herokuapp.com/auth/facebook?scope=publish_actions&google_credentials=" + userInfo.email  });
+    chrome.tabs.create({ url: "http://www.thatecho.co/auth/facebook?scope=publish_actions&google_credentials=" + userInfo.email  });
   });
 };
 

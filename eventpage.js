@@ -18,7 +18,7 @@ chrome.runtime.onMessage.addListener(
     }).then(function(value) {
       var message = JSON.stringify(echo);
       var xml = new XMLHttpRequest();
-      xml.open("POST", "https://echoko.herokuapp.com/api/echos", true);
+      xml.open("POST", "http://www.thatecho.co/api/echos", true);
       xml.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xml.send(message);
       sendResponse({
