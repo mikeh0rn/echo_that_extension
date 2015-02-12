@@ -168,7 +168,7 @@ function updateCharColor(charCount) {
 };
 
 function updateCharCount() {
-  var shortenedUrlLength = 25; //subject to change based on length of shortered URL
+  var shortenedUrlLength = 29; //subject to change based on length of shortened URL
   var userEchoTextCount = document.getElementById("userEchoText").value.length;
   var userHighLightCount = document.getElementById("userHighLight").value.length;
   return shortenedUrlLength + userHighLightCount + userEchoTextCount;
