@@ -41,6 +41,11 @@ function echoThat() {
   }, 720);
 };
 
+function charEncoding(string) {
+  string = string.replace(/\[/g,"etcode4osqbr");
+  return string = string.replace(/\]/g,"etcode4csqbr");
+};
+
 function echoFormSubmit() {
   var userTextandSubmitForm = document.getElementById("userTextAndSubmit");
   userTextandSubmitForm.addEventListener("submit", function(event3){
@@ -48,11 +53,13 @@ function echoFormSubmit() {
 
     var finalUserHighLight = document.getElementById("userHighLight").value
     var userText = document.getElementById("userEchoText").value;
+    var echoString = charEncoding(finalUserHighLight + " "
+    + userText)
 
     closeEchoFormAfterSubmit();
 
     chrome.runtime.sendMessage({
-      message: finalUserHighLight + " " + userText
+      message: echoString
     }, function(response) {
       // response from eventpage.js
     });
@@ -168,7 +175,7 @@ function updateCharColor(charCount) {
 };
 
 function updateCharCount() {
-  var shortenedUrlLength = 25; //subject to change based on length of shortered URL
+  var shortenedUrlLength = 29; //subject to change based on length of shortened URL
   var userEchoTextCount = document.getElementById("userEchoText").value.length;
   var userHighLightCount = document.getElementById("userHighLight").value.length;
   return shortenedUrlLength + userHighLightCount + userEchoTextCount;
