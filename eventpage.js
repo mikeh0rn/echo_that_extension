@@ -7,7 +7,6 @@ chrome.runtime.onMessage.addListener(
       chrome.storage.sync.get('chrome_token', function(items) {
         echo['chrome_token'] = items.chrome_token
       });
-      echo['message'] = charEncoding(echo['message']);
       echo['url'] = encodeURIComponent(sender.url);
       var timer = setInterval(function() {
         if (echo['google_credentials'] != null && echo['chrome_token'] != null && echo['url'] != null) {
@@ -28,7 +27,4 @@ chrome.runtime.onMessage.addListener(
     });
 });
 
-function charEncoding(string) {
-  string = string.replace(/\[/g,"etcode4osqbr");
-  return string = string.replace(/\]/g,"etcode4csqbr");
-};
+
